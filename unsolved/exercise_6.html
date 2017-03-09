@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+
+		Exercise 6: "Coffee!"
+
+		Write an application that allows the user to record when they drank cups of coffee (hint: try the type="datetime" input field)
+		The half-life of caffeine is about 10 hours. Assuming that one cup of coffee has 95mg of caffeine,
+		display in real time the amount of caffeine still present in the user's system.
+
+		Bonus points: Allow the user to select different types of caffeinated drinks.
+
+		Extra bonus points: display a graph showing the caffeine in the user's system since their first cup.
+
+		Super extra bonus points: allow the user to track different types of medicines (or other chemicals) in their system as well.
+
+	-->
+	<div id="app">
+		{{ greeting }}
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				greeting: "hello world"
+			},
+			methods: {
+			}
+		});
+	</script>
+</body>
+</html>

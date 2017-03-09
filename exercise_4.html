@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+
+		Exercise 4: "Loan Calculator"
+		Write an application which takes in a loan amount, interest rate, length of loan (in months), and amount paid.
+		When loan amount, interest rate, or length of loan are changed, the amount paid input should reflect the new amount the user will have to pay.
+		If the user changes the amount paid, update the loan amount field so that it reflects how much money they can borrow to pay that amount. (don't change the interest rate or length of loan).
+
+		Assume the user has to pay the loan monthly, and that the interest is applied monthly.
+	-->
+	<div id="app"> 
+		<h1> Simple Interest Caculator</h1>            
+		<p> Loan Amount: <input
+        	type="number"
+         	class="form-control"
+            placeholder="Loan Amount"
+            v-on:change = "calculatePayment"
+            v-model="loanAmount"
+        ></p>
+        <p> Interest Rate: <input
+        	type="number"
+         	class="form-control"
+            v-on:change = "calculatePayment"
+            v-model="interestRate"
+        >%</p>		
+        <p> Lenth of Loan (months): <input
+        	type="number"
+         	class="form-control"
+            v-on:change = "calculatePayment"
+            v-model="lengthOfLoan"
+        ></p>		
+        <p> Payment Amount: <input
+        	type="number"
+         	class="form-control"
+            placeholder="Payment Amount"
+            v-on:change="changePayment"
+            v-model:value="paymentAmount"
+        ></p>
+		
+	</div>
+
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				loanAmount: null,
+				interestRate: 5,
+				lengthOfLoan: 120,
+				paymentAmount: null,
+			},
+			methods: {
+				calculatePayment: function(){
+					console.log(this.loanAmount); 
+					console.log(this.interestRate); 
+					console.log(this.lengthOfLoan);
+					var interestRateDecimal = this.interestRate * .01;
+					var monthlyInterestRate =  interestRateDecimal / 12;
+					var monthlyInterest = monthlyInterestRate * this.loanAmount;
+					var monthlyPrincipal = this.loanAmount / this.lengthOfLoan;
+
+					this.paymentAmount = monthlyInterest + monthlyPrincipal;
+				},
+
+				changePayment: function(){
+					var interestRateDecimal = this.interestRate * .01;
+					var monthlyInterestRate =  interestRateDecimal / 12;
+					this.loanAmount = (this.paymentAmount * this.lengthOfLoan) / ((monthlyInterestRate * this.lengthOfLoan) + 1);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

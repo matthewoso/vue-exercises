@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+
+		Exercise 5: "Color Mixer"
+		Write an application which takes in two colors (hint: think deeply about which format you'd like to use)
+		Display a block of each color (hint: background-color on a div)
+		Display a block that is the "average" of the two colors (red = red1 + red2 / 2, etc.)
+
+	-->
+	<div id="app">
+		{{ greeting }}
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				greeting: "hello world"
+			},
+			methods: {
+			}
+		});
+	</script>
+</body>
+</html>

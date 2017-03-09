@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+
+		Exercise 1: "Hello!"
+		Write an application which has an input field for the user's name, and displays "Hello, (user's name)" in giant letters below the input field.
+
+	-->
+
+
+
+	<div id="app">            
+		<input
+         	class="form-control"
+            placeholder="User Name"
+            v-model="username"
+        >
+		<h1> Hello, {{username}}</h1>
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		new Vue(
+		{
+			el: '#app',
+			data: 
+			{
+				username: ""
+			},
+			methods: 
+			{
+
+			}
+		});
+	</script>
+</body>
+</html>

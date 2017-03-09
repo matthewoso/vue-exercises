@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+
+		Exercise 3: "Live Calculator"
+		Write an application which has two input fields "a" and "b" and two output divs, "+" and "*"
+		Display the sum of "a" and "b" in the "+" output field
+		Display the product of "a" and "b" in the "*" output field
+		The output fields should update automatically when "a" or "b" are changed.
+
+	-->
+
+		<div id="app">
+	
+		<input 
+			type = "number"
+			v-on:change="addIt"
+			v-model="numberA">
+		<input 
+			type = "number"
+			v-on:change="addIt"
+			v-model="numberB">
+		
+        
+        <p>Sum = {{sum}}</p>          
+
+        <p>Product = {{product}}</p>
+
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		new Vue
+		({
+			el: '#app',
+			data: 
+			{
+				numberA: 1,
+				numberB: 1,
+				sum: "sum",
+				product: "product"
+			},
+			methods: 
+			{
+				addIt: function()
+				{
+					this.sum = parseInt(this.numberA) + parseInt(this.numberB);
+	
+					this.product = parseInt(this.numberA) * parseInt(this.numberB);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

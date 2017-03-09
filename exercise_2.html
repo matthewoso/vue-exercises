@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+
+		Exercise 2: "Calculator"
+		Write an application which has two input fields "a" and "b" and two buttons "+" and "*".
+		When the user presses the "+" button, display the sum of the values in "a" and "b" below the input fields.
+		When the user presses the "*" button, display the product of the values in "a" and "b" below the input fields.
+
+	-->
+	<div id="app">
+	
+		<input v-model="numberA">
+
+        <button v-on:click="addIt">+</button>          
+
+        <button v-on:click="multiplyIt">*</button>
+
+		<input v-model="numberB">
+
+        <span>= {{sum}}</span>
+
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		new Vue
+		({
+			el: '#app',
+			data: 
+			{
+				numberA: 1,
+				numberB: 1,
+				sum: "sum"
+			},
+			methods: 
+			{
+				addIt: function()
+				{
+					this.sum = parseInt(this.numberA) + parseInt(this.numberB);
+				},
+				multiplyIt: function()
+				{
+					this.sum = parseInt(this.numberA) * parseInt(this.numberB);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
